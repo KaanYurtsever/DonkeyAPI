@@ -37,7 +37,7 @@ public class DonkeyAPITests {
                 .when()
                     .post("http://localhost:54092/api/values/deals")
                 .then()
-                    .statusCode(200)
+                    .statusCode(201)
                     .log().body()
                     .extract().response();
 
@@ -63,7 +63,7 @@ public class DonkeyAPITests {
                         .when()
                         .post("http://localhost:54092/api/values/client")
                         .then()
-                        .statusCode(200)
+                        .statusCode(201)
                         .log().body()
                         .extract().response();
 
@@ -100,7 +100,7 @@ public class DonkeyAPITests {
                 .when()
                 .put("http://localhost:54092/api/values/client/7")
                 .then()
-                .statusCode(200)
+                .statusCode(204)
                 .log().body()
                 .body("client.Id", equalTo("7"))
                 .body("client.FirstName", equalTo("Marine"));
@@ -115,7 +115,7 @@ public class DonkeyAPITests {
                     .when()
                     .delete("http://localhost:54092/api/values/client/7")
                     .then()
-                    .statusCode(200)
+                    .statusCode(204)
                     .log().body()
                     .extract().response();
         String jsonString = res.asString();
